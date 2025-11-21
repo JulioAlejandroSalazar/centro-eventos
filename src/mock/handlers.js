@@ -1,3 +1,4 @@
+import events from './data/events.json'
 import { http, HttpResponse, graphql } from 'msw'
 
 const eventDetails = {
@@ -19,31 +20,20 @@ const eventDetails = {
 }
 
 export const handlers = [
-  // REST: obtener todos los eventos
-  http.get('/api/events', async () => {
-    const res = await fetch('/data/events.json')
-    const events = await res.json()
+  // REST
+  http.get('/api/events', () => {
     return HttpResponse.json(events)
   }),
 
-  // GraphQL: obtener detalle de evento por id
+  // GraphQL
   graphql.query("GetEventDetail", ({ variables }) => {
     const { id } = variables
     const detail = eventDetails[id]
-  
+
     if (!detail) {
-      return HttpResponse.json({
-        errors: [{ message: "Event not found" }]
-      })
+      return HttpResponse.json({ errors: [{ message: "Event not found" }] })
     }
-  
-    return HttpResponse.json({
-      data: {
-        eventDetail: {
-          id,
-          ...detail
-        }
-      }
-    })
-  })  
+
+    return HttpResponse.json({ data: { eventDetail: { id, ...detail } } })
+  })
 ]
