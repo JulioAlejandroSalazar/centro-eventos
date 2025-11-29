@@ -1,7 +1,47 @@
-import axios from "axios"
+// eventsApi.js
+
+// Mock de eventos local
+export const mockEvents = [
+  {
+    id: "1",
+    title: "Concierto de Rock",
+    date: "2025-05-10",
+    time: "20:00",
+    location: "Estadio Nacional",
+    category: "Concierto",
+    organizer: "Eventos Chile",
+    capacity: 50000,
+    attendees: 12000,
+    description: "Un concierto con bandas nacionales e internacionales que promete una noche llena de energía y buena música."
+  },
+  {
+    id: "2",
+    title: "Conferencia de Tecnología",
+    date: "2025-06-22",
+    time: "09:00",
+    location: "Centro de Convenciones",
+    category: "Conferencia",
+    organizer: "TechWorld",
+    capacity: 1200,
+    attendees: 850,
+    description: "Expertos de la industria compartirán las últimas tendencias en IA, desarrollo de software y transformación digital."
+  },
+  {
+    id: "3",
+    title: "Expo Cultural",
+    date: "2025-07-15",
+    time: "11:00",
+    location: "Parque Bicentenario",
+    category: "Cultura",
+    organizer: "Ministerio de las Culturas",
+    capacity: 3000,
+    attendees: 2100,
+    description: "Una celebración de la diversidad cultural con gastronomía, música, artesanías y actividades familiares."
+  }
+];
 
 export const getEvents = async () => {
-  const url = `${import.meta.env.BASE_URL}api/events`
-  const res = await axios.get(url)
-  return res.data
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(mockEvents), 500)
+  })
 }

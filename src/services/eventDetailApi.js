@@ -1,29 +1,11 @@
-import axios from 'axios'
+import { mockEvents } from './eventsApi'
 
 export const getEventDetail = async (id) => {
-  const url = `${import.meta.env.BASE_URL}graphql`
-
-  const query = `
-    query GetEventDetail($id: ID!) {
-      eventDetail(id: $id) {
-        id
-        title
-        date
-        time
-        location
-        category
-        organizer
-        capacity
-        attendees
-        description
-      }
-    }
-  `
-
-  const res = await axios.post(url, {
-    query,
-    variables: { id }
+  return new Promise((resolve, reject) => {
+    const event = mockEvents.find(ev => ev.id === id)
+    setTimeout(() => {
+      if (event) resolve(event)
+      else reject(new Error('Evento no encontrado'))
+    }, 300)
   })
-
-  return res.data.data.eventDetail
 }
