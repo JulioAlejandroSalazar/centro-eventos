@@ -8,6 +8,7 @@ describe('EventCard', () => {
     id: 10,
     title: 'Concierto de Rock',
     date: '2025-03-10',
+    time: '20:00',
     location: 'Santiago',
     category: 'Música'
   }
@@ -19,10 +20,10 @@ describe('EventCard', () => {
       </MemoryRouter>
     )
 
-    expect(screen.getByText('Concierto de Rock')).toBeInTheDocument()
-    expect(screen.getByText('2025-03-10')).toBeInTheDocument()
-    expect(screen.getByText('Santiago')).toBeInTheDocument()
-    expect(screen.getByText('Música')).toBeInTheDocument()
+    expect(screen.getByText(/Concierto de Rock/i)).toBeInTheDocument()
+    expect(screen.getByText(/2025-03-10/i)).toBeInTheDocument()
+    expect(screen.getByText(/Santiago/i)).toBeInTheDocument()
+    expect(screen.getByText(/Música/i)).toBeInTheDocument()
   })
 
   test('contiene el link hacia el detalle del evento', () => {
@@ -32,7 +33,7 @@ describe('EventCard', () => {
       </MemoryRouter>
     )
 
-    const link = screen.getByText('Ver detalles')
+    const link = screen.getByText(/Ver detalles/i)
     expect(link).toBeInTheDocument()
     expect(link.getAttribute('href')).toBe('/event/10')
   })

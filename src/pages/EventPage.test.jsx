@@ -9,7 +9,7 @@ vi.mock('../services/eventDetailApi', () => ({
 }))
 
 vi.mock('../components/EventDetail', () => ({
-  default: ({ detail }) => <div data-testid="event-detail">{detail.organizer}</div>
+  default: ({ detail }) => <div data-testid="event-detail">{detail.title}</div>
 }))
 
 import { getEventDetail } from '../services/eventDetailApi'
@@ -17,7 +17,14 @@ import { getEventDetail } from '../services/eventDetailApi'
 describe('EventPage', () => {
   test('muestra pantalla de carga y luego detalle', async () => {
     getEventDetail.mockResolvedValue({
+      id: '1',
+      title: 'Concierto de Rock',
+      date: '2025-03-10',
+      time: '20:00',
+      location: 'Estadio Nacional',
+      category: 'Concierto',
       organizer: 'Live Nation',
+      capacity: 5000,
       attendees: 1500,
       description: 'Gran concierto'
     })
@@ -33,7 +40,7 @@ describe('EventPage', () => {
     expect(screen.getByText('Cargando...')).toBeInTheDocument()
     const detailEl = await screen.findByTestId('event-detail')
     expect(detailEl).toBeInTheDocument()
-    expect(detailEl.textContent).toBe('Live Nation')
+    expect(detailEl.textContent).toBe('Concierto de Rock')
     expect(screen.getByText('Detalle del evento')).toBeInTheDocument()
   })
 })

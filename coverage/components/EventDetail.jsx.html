@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -73,7 +73,38 @@
 <a name='L8'></a><a href='#L8'>8</a>
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
-<a name='L11'></a><a href='#L11'>11</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -83,24 +114,59 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">function EventDetail({ detail }) {
-    return (
-      &lt;div className="p-4 border rounded shadow"&gt;
-        &lt;p&gt;&lt;strong&gt;Organizador:&lt;/strong&gt; {detail.organizer}&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Asistentes:&lt;/strong&gt; {detail.attendees}&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Descripción:&lt;/strong&gt; {detail.description}&lt;/p&gt;
-      &lt;/div&gt;
-    )
-  }
-  
-  export default EventDetail  </pre></td></tr></table></pre>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useNavigate } from "react-router-dom"
+&nbsp;
+function EventDetail({ detail }) {
+  const navigate = useNavigate()
+&nbsp;
+  return (
+    &lt;div className="max-w-2xl mx-auto bg-gray-900 p-6 rounded-lg shadow border border-gray-700"&gt;
+&nbsp;
+      {/* Botón Volver */}
+      &lt;button
+        onClick={() =&gt; navigate(-1)}
+        className="mb-4 px-3 py-1 bg-gray-700 text-white rounded hover:bg-gray-600"
+      &gt;
+        ← Volver
+      &lt;/button&gt;
+&nbsp;
+      &lt;h1 className="text-3xl font-bold mb-3 text-white"&gt;{detail.title}&lt;/h1&gt;
+      &lt;p className="text-gray-300"&gt;&lt;strong className="text-white"&gt;Fecha:&lt;/strong&gt; {detail.date}&lt;/p&gt;
+      &lt;p className="text-gray-300"&gt;&lt;strong className="text-white"&gt;Hora:&lt;/strong&gt; {detail.time}&lt;/p&gt;
+      &lt;p className="text-gray-300"&gt;&lt;strong className="text-white"&gt;Ubicación:&lt;/strong&gt; {detail.location}&lt;/p&gt;
+      &lt;p className="text-gray-300"&gt;&lt;strong className="text-white"&gt;Categoría:&lt;/strong&gt; {detail.category}&lt;/p&gt;
+      &lt;p className="text-gray-300"&gt;&lt;strong className="text-white"&gt;Organizador:&lt;/strong&gt; {detail.organizer}&lt;/p&gt;
+      &lt;p className="text-gray-300"&gt;&lt;strong className="text-white"&gt;Capacidad:&lt;/strong&gt; {detail.capacity}&lt;/p&gt;
+      &lt;p className="text-gray-300"&gt;&lt;strong className="text-white"&gt;Asistentes:&lt;/strong&gt; {detail.attendees}&lt;/p&gt;
+      &lt;h2 className="text-xl font-semibold mt-4 text-white"&gt;Descripción&lt;/h2&gt;
+      &lt;p className="text-gray-300 mt-1"&gt;{detail.description}&lt;/p&gt;
+&nbsp;
+    &lt;/div&gt;
+  )
+}
+&nbsp;
+export default EventDetail
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-27T13:14:56.760Z
+                at 2025-11-29T02:28:25.808Z
             </div>
         <script src="../prettify.js"></script>
         <script>
