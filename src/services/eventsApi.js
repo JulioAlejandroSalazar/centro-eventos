@@ -1,6 +1,7 @@
-import axios from 'axios'
+import axios from "axios"
 
 export const getEvents = async () => {
-  const res = await axios.get('/api/events')
+  const url = `${import.meta.env.BASE_URL}api/events`
+  const res = await axios.get(url)
   return res.data
 }
